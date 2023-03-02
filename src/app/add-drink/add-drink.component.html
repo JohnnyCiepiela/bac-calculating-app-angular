@@ -1,0 +1,16 @@
+<h2>Choose aa drink:</h2>
+<select [(ngModel)]="selectedDrink">
+  <option *ngFor="let drink of drinks" [ngValue]="drink">
+    {{ drink.name }}
+  </option>
+</select>
+<br />
+<button (click)="addDrink()">Add Drink</button>
+<br />
+<br />
+<h2>Selected Drinks:</h2>
+<ul>
+  <li *ngFor="let drink of selectedDrinkService.selectedDrinks">
+    {{ drink.name }} - {{ drink.alcoholContent }}%
+  </li>
+</ul>

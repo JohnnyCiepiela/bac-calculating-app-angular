@@ -1,0 +1,11 @@
+<div>
+  <button (click)="setCurrentPage('AddDrink')">Add Drink</button>
+  <button (click)="setCurrentPage('SpinBottle')">Spin Bottle</button>
+  <button (click)="setCurrentPage('CalculateBac')">Calculate BAC</button>
+  <button (click)="setCurrentPage('ReactionTime')">Reaction Time</button>
+</div>
+
+<app-add-drink *ngIf="currentPage === 'AddDrink'"></app-add-drink>
+<app-spin-bottle *ngIf="currentPage === 'SpinBottle'"></app-spin-bottle>
+<app-calculate-bac *ngIf="currentPage === 'CalculateBac'"></app-calculate-bac>
+<app-reaction-time *ngIf="currentPage === 'ReactionTime'"></app-reaction-time>

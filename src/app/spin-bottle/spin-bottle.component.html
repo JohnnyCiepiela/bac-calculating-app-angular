@@ -1,0 +1,9 @@
+<div *ngIf="showResult">
+  <h2>The bottle landed on {{ selectedPerson }}</h2>
+  <button (click)="reset()">Spin Again</button>
+</div>
+
+<div *ngIf="!showResult">
+  <h2>Spin the Bottle</h2>
+  <button (click)="spin()">Spin</button>
+</div>

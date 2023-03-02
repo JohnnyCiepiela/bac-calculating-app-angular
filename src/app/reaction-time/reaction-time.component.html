@@ -1,0 +1,11 @@
+<h2>Reaction Time Test</h2>
+<p>Click the button as quickly as possible after the dot appears.</p>
+<button (click)="startTest()" [disabled]="testRunning">Start Test</button>
+<div *ngIf="testRunning">
+  <div *ngIf="!dotVisible">Get ready...</div>
+  <div *ngIf="dotVisible" style="font-size: 48px; text-align: center">.</div>
+</div>
+<div *ngIf="testFinished">
+  <p>Your reaction time: {{ reactionTime }} ms</p>
+  <button (click)="reset()">Try Again</button>
+</div>
