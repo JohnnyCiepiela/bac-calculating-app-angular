@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1678735665586,
+  "timestamp": 1678736672269,
   "index": "https://johnnyciepiela.github.io/sober-app/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "https://johnnyciepiela.github.io/sober-app/favicon.ico",
         "https://johnnyciepiela.github.io/sober-app/index.html",
-        "https://johnnyciepiela.github.io/sober-app/main.9df1a1ea31eea4a1.js",
+        "https://johnnyciepiela.github.io/sober-app/main.164bddc8af042197.js",
         "https://johnnyciepiela.github.io/sober-app/manifest.webmanifest",
         "https://johnnyciepiela.github.io/sober-app/polyfills.6c2b6abff21953a1.js",
         "https://johnnyciepiela.github.io/sober-app/runtime.249e65cb899f879d.js",
@@ -52,8 +52,8 @@
     "https://johnnyciepiela.github.io/sober-app/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "https://johnnyciepiela.github.io/sober-app/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "https://johnnyciepiela.github.io/sober-app/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://johnnyciepiela.github.io/sober-app/index.html": "be62f7dc6c2d54fb36298471f245a6167703a3ff",
-    "https://johnnyciepiela.github.io/sober-app/main.9df1a1ea31eea4a1.js": "f857619d2bb0302ee911dfb1406ba008fa043e77",
+    "https://johnnyciepiela.github.io/sober-app/index.html": "156ae78863cef0142e525ba265924104d340e2bc",
+    "https://johnnyciepiela.github.io/sober-app/main.164bddc8af042197.js": "5d265e576fd4f35dc98fc0d315178e1ce643a1ef",
     "https://johnnyciepiela.github.io/sober-app/manifest.webmanifest": "31a04c41194648d4a783d29a1c3d19d4e531dab7",
     "https://johnnyciepiela.github.io/sober-app/polyfills.6c2b6abff21953a1.js": "7ed26a2cc32345ccd8c8619ef9d95ebe406ae1a2",
     "https://johnnyciepiela.github.io/sober-app/runtime.249e65cb899f879d.js": "a4672006ea0d608c911dd713083625aa2711a94b",
