@@ -1,0 +1,29 @@
+.nav-bar {
+  margin: auto;
+  display: flex;
+  height: 100px;
+  width: 50%;
+}
+
+.card {
+  border-radius: 20px;
+  margin-left: 10px;
+  height: 100px;
+  width: 50px;
+  background-color: #b30000;
+  flex: 1;
+  transition: .3s all ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-family: "Poppins SemiBold", sans-serif;
+  font-size: 1em;
+}
+
+.card:hover {
+  flex: 2;
+  background-color: #cfcfcf;
+}
+
+.lower-panel {
+  text-align: center;
+  margin-top: 200px;
+}
