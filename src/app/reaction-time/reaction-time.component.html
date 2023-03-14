@@ -1,11 +1,12 @@
-<h2>Reaction Time Test</h2>
+<h2>Measure your reaction time:</h2>
 <p>Click the button as quickly as possible after the dot appears.</p>
-<button (click)="startTest()" [disabled]="testRunning">Start Test</button>
+<button class="start-test" (click)="startTest()" [disabled]="testRunning || tapEnabled">Start Test</button>
+<button class="tap" (click)="tap()" [disabled]="!tapEnabled">Tap</button>
 <div *ngIf="testRunning">
-  <div *ngIf="!dotVisible">Get ready...</div>
-  <div *ngIf="dotVisible" style="font-size: 48px; text-align: center">.</div>
+  <div class="dot-appearance" *ngIf="!dotVisible">Get ready...</div>
+  <div class="dot-appearance" *ngIf="dotVisible" style="font-size: 48px; text-align: center" (click)="tap()">.</div>
 </div>
 <div *ngIf="testFinished">
   <p>Your reaction time: {{ reactionTime }} ms</p>
-  <button (click)="reset()">Try Again</button>
+  <button class="try-again" (click)="reset()">Try Again</button>
 </div>

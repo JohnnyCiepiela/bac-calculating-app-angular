@@ -6,18 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./spin-bottle.component.css'],
 })
 export class SpinBottleComponent {
-  people = ['Alice', 'Bob', 'Charlie', 'Dave'];
-  selectedPerson = '';
-  showResult = false;
+pointerTransform = '';
+spin(): void {
+  let angle = 0;
+  angle = angle + 2 * 360 + Math.random() * 360;
+  this.pointerTransform = `rotate(${angle}deg)`;
+}
 
-  spin() {
-    const randomIndex = Math.floor(Math.random() * this.people.length);
-    this.selectedPerson = this.people[randomIndex];
-    this.showResult = true;
-  }
-
-  reset() {
-    this.selectedPerson = '';
-    this.showResult = false;
-  }
+reset(): void {
+this.pointerTransform = '';
+}
 }

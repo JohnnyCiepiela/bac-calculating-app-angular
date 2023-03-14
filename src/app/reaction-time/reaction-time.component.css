@@ -1,0 +1,33 @@
+.start-test {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  background-color: #cfcfcf;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.tap {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: #cfcfcf;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.try-again {
+  margin-bottom: 10px;
+  background-color: #cfcfcf;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.dot-appearance {
+  margin-bottom: 20px;
+}

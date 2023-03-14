@@ -1,20 +1,23 @@
-<form>
-  <label>Weight (in kg):</label>
-  <input type="number" name="weight" [(ngModel)]="weight" />
-  <br />
-  <label>Hours Passed:</label>
-  <input type="number" name="hoursPassed" [(ngModel)]="hoursPassed" />
-  <br />
-  <label>Gender:</label>
-  <select name="gender" [(ngModel)]="gender">
-    <option value="male">Male</option>
-    <option value="female">Female</option>
-  </select>
-  <br />
-  <button (click)="calculateBac()">Calculate BAC</button>
-  <br />
-  <br />
-  <div *ngIf="bac !== null">
-    <p>Your BAC is {{ bac }}</p>
-  </div>
-</form>
+<h2>Calculate you Blood Alcohol Content:</h2>
+<div class="form-container">
+  <form>
+    <label>Weight (in kg):</label>
+    <input type="number" name="weight" [(ngModel)]="weight" />
+    <br />
+    <label>Hours Passed:</label>
+    <input type="number" name="hoursPassed" [(ngModel)]="hoursPassed" />
+    <br />
+    <label>Gender:</label> <br />
+    <select name="gender" [(ngModel)]="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+    <br />
+    <button class="calculate-button" (click)="calculateBac()">Calculate BAC</button>
+    <br />
+    <br />
+    <div *ngIf="bac !== null">
+      <p>Your BAC is {{ bac }}</p>
+    </div>
+  </form>
+</div>

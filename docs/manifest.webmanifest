@@ -1,6 +1,6 @@
 {
-  "name": "sober-app",
-  "short_name": "sober-app",
+  "name": "SoberApp",
+  "short_name": "SoberApp",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
