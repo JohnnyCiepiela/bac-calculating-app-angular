@@ -13,6 +13,7 @@ export class ReactionTimeComponent implements OnInit {
   startTime: number | null = null;
   endTime: number | null = null;
   reactionTime: number | null = null;
+  reactionTimeMsg: string = '';
 
   constructor() {}
 
@@ -31,6 +32,13 @@ export class ReactionTimeComponent implements OnInit {
     if (this.dotVisible && this.tapEnabled) {
       this.endTime = Date.now();
       this.reactionTime = this.endTime - this.startTime!;
+      if (this.reactionTime <= 400) {
+        this.reactionTimeMsg = 'Your reaction time is great!';
+      } else if (this.reactionTime > 400 && this.reactionTime <= 550) {
+        this.reactionTimeMsg = 'Your reaction time is normal.';
+      } else {
+        this.reactionTimeMsg = 'Your reaction time is slow, please check your BAC level.';
+      }
       this.testFinished = true;
       this.tapEnabled = false;
     }
@@ -44,5 +52,6 @@ export class ReactionTimeComponent implements OnInit {
     this.startTime = null;
     this.endTime = null;
     this.reactionTime = null;
+    this.reactionTimeMsg = '';
   }
 }

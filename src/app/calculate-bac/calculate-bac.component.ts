@@ -12,6 +12,7 @@ export class CalculateBacComponent {
   hoursPassed: number | null = null;
   gender: 'male' | 'female' | null = null;
   bac: string | null = null;
+  parseFloat = parseFloat;
 
   drinks: Drink[] = [
     { name: 'Beer', alcoholContent: 5 },
@@ -24,13 +25,17 @@ export class CalculateBacComponent {
   calculateBac(): void {
     const bacFormula =
       ((this.selectedDrinkService.selectedDrinks.reduce(
-        (total, drink) => total + drink.alcoholContent,
-        0
-      ) *
-        5.14) /
+            (total, drink) => total + drink.alcoholContent,
+            0
+          ) *
+          5.14) /
         this.weight!) *
-        0.73 -
+      0.73 -
       0.15 * this.hoursPassed!;
     this.bac = bacFormula.toFixed(2);
+  }
+
+  isValidForm(): boolean {
+    return this.weight !== null && this.hoursPassed !== null && this.gender !== null;
   }
 }

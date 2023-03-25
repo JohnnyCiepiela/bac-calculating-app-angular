@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Drink } from '../drink.interface';
 import { SelectedDrinksService } from '../selected-drinks.service';
 
@@ -7,26 +7,33 @@ import { SelectedDrinksService } from '../selected-drinks.service';
   templateUrl: './add-drink.component.html',
   styleUrls: ['./add-drink.component.css'],
 })
-export class AddDrinkComponent {
+export class AddDrinkComponent implements OnInit {
   selectedDrink: Drink = {} as Drink;
   drinks: Drink[] = [
     { name: 'Beer', alcoholContent: 5 },
     { name: 'Wine', alcoholContent: 12 },
     { name: 'Spirits', alcoholContent: 40 },
   ];
+  addDrinkButtonDisabled = false;
+  firstDrink: Drink = this.drinks[0];
 
   constructor(public selectedDrinkService: SelectedDrinksService) {}
+
+  ngOnInit() {
+    this.checkIfAtLeastOneDrinkAdded();
+    this.selectedDrink = this.firstDrink;
+  }
 
   getSelectedDrinks(): Drink[] {
     return this.selectedDrinkService.getSelectedDrinks();
   }
 
   addDrink() {
-    if (this.selectedDrink) {
-      this.selectedDrinkService.addSelectedDrink(this.selectedDrink);
-      //this.selectedDrink = null;
-      console.log(this.getSelectedDrinks());
-      console.log('selected drink:', this.selectedDrink?.alcoholContent);
-    }
+    this.selectedDrinkService.addSelectedDrink(this.selectedDrink);
+// this.selectedDrink = null;
+  }
+
+  checkIfAtLeastOneDrinkAdded() {
+    this.addDrinkButtonDisabled = !this.selectedDrink;
   }
 }

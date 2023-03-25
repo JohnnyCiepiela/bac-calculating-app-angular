@@ -1,23 +1,28 @@
-<h2>Calculate you Blood Alcohol Content:</h2>
+<h2>Calculate your Blood Alcohol Content:</h2>
 <div class="form-container">
   <form>
     <label>Weight (in kg):</label>
-    <input type="number" name="weight" [(ngModel)]="weight" />
+    <input type="number" name="weight" [(ngModel)]="weight" required/>
     <br />
     <label>Hours Passed:</label>
-    <input type="number" name="hoursPassed" [(ngModel)]="hoursPassed" />
+    <input type="number" name="hoursPassed" [(ngModel)]="hoursPassed" required/>
     <br />
     <label>Gender:</label> <br />
-    <select name="gender" [(ngModel)]="gender">
+    <select name="gender" [(ngModel)]="gender" required>
+      <option value=""></option>
       <option value="male">Male</option>
       <option value="female">Female</option>
     </select>
     <br />
-    <button class="calculate-button" (click)="calculateBac()">Calculate BAC</button>
+    <button class="calculate-button" [disabled]="!isValidForm()" (click)="calculateBac()">Calculate BAC</button>
     <br />
     <br />
     <div *ngIf="bac !== null">
-      <p>Your BAC is {{ bac }}</p>
+      <p *ngIf="parseFloat(bac) > 0">Your BAC is {{ bac }}</p>
+      <p *ngIf="parseFloat(bac) >= 0.08 && parseFloat(bac) < 0.15">You are legally impaired and should not operate a vehicle.</p>
+      <p *ngIf="parseFloat(bac) >= 0.15 && parseFloat(bac) < 0.30">You are at a dangerous level of intoxication and should seek medical attention.</p>
+      <p *ngIf="parseFloat(bac) >= 0.30">You are at a potentially life-threatening level of intoxication and require immediate medical attention.</p>
+      <p *ngIf="parseFloat(bac) < 0">You should already be sober.</p>
     </div>
   </form>
 </div>

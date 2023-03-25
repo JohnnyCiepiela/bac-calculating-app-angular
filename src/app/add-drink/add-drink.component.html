@@ -1,13 +1,12 @@
 <h2>Choose a drink:</h2>
 <div class="dropdown">
   <select [(ngModel)]="selectedDrink">
-    <option *ngFor="let drink of drinks" [ngValue]="drink">
+    <option *ngFor="let drink of drinks" [ngValue]="drink" [selected]="drink.name === firstDrink.name">
       {{ drink.name }}
     </option>
   </select>
 </div>
-<button class="add-button" (click)="addDrink()">Add Drink</button>
-
+<button class="add-button" [disabled]="addDrinkButtonDisabled" (click)="addDrink()">Add Drink</button>
 <div class="selected-drinks" *ngIf="selectedDrinkService.selectedDrinks.length">
   <h2>Selected Drinks:</h2>
   <div class="selected-drinks-list">
