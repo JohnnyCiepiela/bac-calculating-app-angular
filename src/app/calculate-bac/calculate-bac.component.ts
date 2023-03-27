@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { Drink } from '../drink.interface';
-import { SelectedDrinksService } from '../selected-drinks.service';
+import {Component} from '@angular/core';
+import {Drink} from '../drink.interface';
+import {SelectedDrinksService} from '../selected-drinks.service';
 
 @Component({
   selector: 'app-calculate-bac',
@@ -15,24 +15,29 @@ export class CalculateBacComponent {
   parseFloat = parseFloat;
 
   drinks: Drink[] = [
-    { name: 'Beer', alcoholContent: 5 },
-    { name: 'Wine', alcoholContent: 12 },
-    { name: 'Spirits', alcoholContent: 40 },
+    {name: 'Beer', alcoholContent: 5},
+    {name: 'Wine', alcoholContent: 12},
+    {name: 'Spirits', alcoholContent: 40},
   ];
 
-  constructor(private selectedDrinkService: SelectedDrinksService) {}
+  constructor(public selectedDrinkService: SelectedDrinksService) {
+  }
 
   calculateBac(): void {
-    const bacFormula =
-      ((this.selectedDrinkService.selectedDrinks.reduce(
-            (total, drink) => total + drink.alcoholContent,
-            0
-          ) *
-          5.14) /
-        this.weight!) *
-      0.73 -
-      0.15 * this.hoursPassed!;
-    this.bac = bacFormula.toFixed(2);
+    if (this.isValidForm()) {
+      const genderConstant = this.gender === 'male' ? 0.68 : 0.55;
+      const totalAlcohol = this.selectedDrinkService.selectedDrinks.reduce(
+        (total, drink) => total + (drink.alcoholContent / 100) * 12 * 0.789,
+        0
+      );
+      const bacFormula =
+        (totalAlcohol /
+          (this.weight! * genderConstant)) -
+        0.015 * this.hoursPassed!;
+      this.bac = bacFormula.toFixed(2);
+    } else {
+      this.bac = null;
+    }
   }
 
   isValidForm(): boolean {

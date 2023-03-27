@@ -4,10 +4,12 @@
 <button class="tap" (click)="tap()" [disabled]="!tapEnabled">Tap</button>
 <div *ngIf="testRunning">
   <div class="dot-appearance" *ngIf="!dotVisible">Get ready...</div>
-  <div class="dot-appearance" *ngIf="dotVisible" style="font-size: 150px; text-align: center; margin-bottom: 100px" (click)="tap()">.</div>
+  <div class="dot-appearance" *ngIf="dotVisible" style="font-size: 150px; text-align: center; margin-bottom: 100px"
+       (click)="tap()">.
+  </div>
 </div>
 <div *ngIf="testFinished">
   <p>Your reaction time: {{ reactionTime }} ms</p>
-  <p>{{ reactionTimeMsg }}</p>
+  <p class="result" id="reaction-time-msg">{{ reactionTimeMsg }}</p>
   <button class="try-again" (click)="reset()">Try Again</button>
 </div>
