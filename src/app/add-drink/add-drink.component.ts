@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import { Drink } from '../drink.interface';
-import { SelectedDrinksService } from '../selected-drinks.service';
+import {Drink} from '../drink.interface';
+import {SelectedDrinksService} from '../selected-drinks.service';
 
 @Component({
   selector: 'app-add-drink',
@@ -10,14 +10,15 @@ import { SelectedDrinksService } from '../selected-drinks.service';
 export class AddDrinkComponent implements OnInit {
   selectedDrink: Drink = {} as Drink;
   drinks: Drink[] = [
-    { name: 'Beer', alcoholContent: 5 },
-    { name: 'Wine', alcoholContent: 12 },
-    { name: 'Spirits', alcoholContent: 40 },
+    {name: 'Beer', alcoholContent: 5, amount: 568},
+    {name: 'Wine', alcoholContent: 12, amount: 150},
+    {name: 'Spirits', alcoholContent: 40, amount: 40},
   ];
   addDrinkButtonDisabled = false;
   firstDrink: Drink = this.drinks[0];
 
-  constructor(public selectedDrinkService: SelectedDrinksService) {}
+  constructor(public selectedDrinkService: SelectedDrinksService) {
+  }
 
   ngOnInit() {
     this.checkIfAtLeastOneDrinkAdded();

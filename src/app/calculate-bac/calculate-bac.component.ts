@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {Drink} from '../drink.interface';
 import {SelectedDrinksService} from '../selected-drinks.service';
+import {Drink} from '../drink.interface';
 
 @Component({
   selector: 'app-calculate-bac',
@@ -14,27 +14,20 @@ export class CalculateBacComponent {
   bac: string | null = null;
   parseFloat = parseFloat;
 
-  drinks: Drink[] = [
-    {name: 'Beer', alcoholContent: 5},
-    {name: 'Wine', alcoholContent: 12},
-    {name: 'Spirits', alcoholContent: 40},
-  ];
-
   constructor(public selectedDrinkService: SelectedDrinksService) {
   }
 
   calculateBac(): void {
     if (this.isValidForm()) {
-      const genderConstant = this.gender === 'male' ? 0.68 : 0.55;
-      const totalAlcohol = this.selectedDrinkService.selectedDrinks.reduce(
-        (total, drink) => total + (drink.alcoholContent / 100) * 12 * 0.789,
-        0
-      );
-      const bacFormula =
-        (totalAlcohol /
-          (this.weight! * genderConstant)) -
-        0.015 * this.hoursPassed!;
-      this.bac = bacFormula.toFixed(2);
+      const genderFactor: number = this.gender === 'male' ? 0.68 : 0.55;
+      const drinks: Drink[] = this.selectedDrinkService.getSelectedDrinks();
+      const totalAlcohol: number = drinks.reduce((acc, curr) => {
+        return acc + (curr.amount * curr.alcoholContent / 100);
+      }, 0);
+      const alcoholDistributionRatio: number = genderFactor * this.weight!;
+      const bac: number = totalAlcohol / alcoholDistributionRatio / 1000 * 100;
+      const adjustedBac: number = bac - (0.015 * this.hoursPassed!);
+      this.bac = adjustedBac.toFixed(3).toString();
     } else {
       this.bac = null;
     }

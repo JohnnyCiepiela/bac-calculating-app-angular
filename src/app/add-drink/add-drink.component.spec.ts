@@ -27,14 +27,14 @@ describe('AddDrinkComponent', () => {
   });
 
   it('should display the list of selected drinks when at least one drink has been added', () => {
-    selectedDrinksService.addSelectedDrink({name: 'Beer', alcoholContent: 5});
+    selectedDrinksService.addSelectedDrink({name: 'Beer', alcoholContent: 5, amount: 568});
     fixture.detectChanges();
     const selectedDrinksList = fixture.nativeElement.querySelector('.selected-drinks-list');
     expect(selectedDrinksList).toBeTruthy();
   });
 
   it('should enable the "Add Drink" button when a drink is selected', () => {
-    component.selectedDrink = {name: 'Wine', alcoholContent: 12};
+    component.selectedDrink = {name: 'Wine', alcoholContent: 12, amount: 150};
     component.checkIfAtLeastOneDrinkAdded();
     fixture.detectChanges();
     const addButton = fixture.nativeElement.querySelector('.add-button');
@@ -43,7 +43,7 @@ describe('AddDrinkComponent', () => {
 
   it('should add the selected drink to the list of selected drinks when "Add Drink" button is clicked', () => {
     const addSelectedDrinkSpy = jest.spyOn(selectedDrinksService, 'addSelectedDrink');
-    component.selectedDrink = {name: 'Spirits', alcoholContent: 40};
+    component.selectedDrink = {name: 'Spirits', alcoholContent: 40, amount: 40};
     component.addDrink();
     fixture.detectChanges();
     expect(addSelectedDrinkSpy).toHaveBeenCalledWith(component.selectedDrink);
